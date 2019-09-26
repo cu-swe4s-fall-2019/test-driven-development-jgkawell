@@ -50,6 +50,11 @@ class TestMathLib(unittest.TestCase):
         result = math_lib.list_stdev([])
         self.assertEqual(result, None)
 
+    def test_list_stdev_int_list(self):
+        rand_int_list = [random.randrange(-1000, 1000) for i in range(1000)]
+        result = math_lib.list_stdev(rand_int_list)
+        self.assertAlmostEqual(result, statistics.pstdev(rand_int_list))
+
 
 if __name__ == '__main__':
     unittest.main()

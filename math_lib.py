@@ -1,3 +1,5 @@
+import math
+
 
 def list_mean(L):
 
@@ -16,4 +18,13 @@ def list_mean(L):
 
 
 def list_stdev(L):
-    return None
+
+    mean = list_mean(L)
+
+    if mean is None:
+        return None
+
+    var = sum(pow(el - mean, 2) for el in L) / len(L)
+    std = math.sqrt(var)
+
+    return std
