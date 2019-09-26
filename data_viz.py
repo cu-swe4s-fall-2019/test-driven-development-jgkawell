@@ -1,6 +1,23 @@
+import os
+import math_lib as ml
+import matplotlib as mpl
+import matplotlib.pyplot as plt
+
+mpl.use('Agg')
+
 
 def boxplot(L, out_file_name):
-    pass
+
+    if os.path.exists(out_file_name):
+        raise FileExistsError("That file name already exists.")
+
+    mean = ml.list_mean(L)
+    stdev = ml.list_stdev(L)
+    plt.boxplot(L)
+    plt.title("mean: " + str(mean) + " stdev: " + str(stdev))
+    plt.xlabel("Column Number")
+    plt.ylabel("Value")
+    plt.savefig(out_file_name, bbox_inches="tight")
 
 
 def histogram(L, out_file_name):
