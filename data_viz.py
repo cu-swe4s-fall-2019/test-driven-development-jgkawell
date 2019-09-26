@@ -30,8 +30,8 @@ def histogram(L, out_file_name):
     stdev = ml.list_stdev(L)
     plt.hist(L)
     plt.title("mean: " + str(mean) + " stdev: " + str(stdev))
-    plt.xlabel("Column Number")
-    plt.ylabel("Value")
+    plt.xlabel("Value")
+    plt.ylabel("Frequency")
     plt.savefig(out_file_name, bbox_inches="tight")
     plt.close()
 
