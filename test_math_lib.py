@@ -7,13 +7,21 @@ import statistics
 
 class TestMathLib(unittest.TestCase):
 
+    """ MEAN TESTS """
+
     def test_list_mean_none_list(self):
-        result = math_lib.list_mean(None)
-        self.assertEqual(result, None)
+        with self.assertRaises(ValueError) as ex:
+            math_lib.list_mean(None)
+
+        self.assertEqual(
+            str(ex.exception), "List cannot be \'None\'.")
 
     def test_list_mean_empty_list(self):
-        result = math_lib.list_mean([])
-        self.assertEqual(result, None)
+        with self.assertRaises(ValueError) as ex:
+            math_lib.list_mean([])
+
+        self.assertEqual(
+            str(ex.exception), "List cannot be empty.")
 
     def test_list_mean_int_list(self):
         rand_int_list = [random.randrange(-1000, 1000) for i in range(1000)]
@@ -42,13 +50,21 @@ class TestMathLib(unittest.TestCase):
         self.assertEqual(
             str(ex.exception), "List must only contain numeric values.")
 
+    """ STDEV TESTS """
+
     def test_list_stdev_none_list(self):
-        result = math_lib.list_stdev(None)
-        self.assertEqual(result, None)
+        with self.assertRaises(ValueError) as ex:
+            math_lib.list_stdev(None)
+
+        self.assertEqual(
+            str(ex.exception), "List cannot be \'None\'.")
 
     def test_list_stdev_empty_list(self):
-        result = math_lib.list_stdev([])
-        self.assertEqual(result, None)
+        with self.assertRaises(ValueError) as ex:
+            math_lib.list_stdev([])
+
+        self.assertEqual(
+            str(ex.exception), "List cannot be empty.")
 
     def test_list_stdev_int_list(self):
         rand_int_list = [random.randrange(-1000, 1000) for i in range(1000)]
