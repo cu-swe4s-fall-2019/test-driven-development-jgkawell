@@ -42,6 +42,10 @@ class TestMathLib(unittest.TestCase):
         self.assertEqual(
             str(ex.exception), "List must only contain numeric values.")
 
+    def test_list_stdev_none_list(self):
+        result = math_lib.list_stdev(None)
+        self.assertEqual(result, None)
+
 
 if __name__ == '__main__':
     unittest.main()
