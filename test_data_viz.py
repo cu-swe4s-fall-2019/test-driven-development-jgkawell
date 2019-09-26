@@ -36,6 +36,18 @@ class TestMathLib(unittest.TestCase):
 
         os.remove(file_name)
 
+    def test_histogram_file_already_exists(self):
+        file_name = "test.png"
+        f = open(file_name, "w+")
+        f.close()
+
+        with self.assertRaises(FileExistsError) as ex:
+            data_viz.histogram([], file_name)
+
+        self.assertEqual(str(ex.exception), "That file name already exists.")
+
+        os.remove(file_name)
+
     def test_histogram_random_int_array(self):
         file_name = "test.png"
         rand_int_list = [random.randrange(-1000, 1000) for i in range(1000)]
