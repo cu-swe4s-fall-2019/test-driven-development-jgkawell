@@ -67,6 +67,15 @@ class TestMathLib(unittest.TestCase):
         result = math_lib.list_stdev(full_list)
         self.assertAlmostEqual(result, statistics.pstdev(full_list))
 
+    def test_list_stdev_non_num_in_list(self):
+        non_num_list = [random.random() for i in range(1000)]
+        non_num_list.append("non_num")
+
+        with self.assertRaises(TypeError) as ex:
+            math_lib.list_stdev(non_num_list)
+
+        self.assertEqual(
+            str(ex.exception), "List must only contain numeric values.")
 
 
 if __name__ == '__main__':
