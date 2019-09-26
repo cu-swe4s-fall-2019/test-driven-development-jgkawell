@@ -45,6 +45,15 @@ class TestMathLib(unittest.TestCase):
 
         os.remove(file_name)
 
+    def test_historgram_random_double_array(self):
+        file_name = "test.png"
+        rand_double_list = [random.random() for i in range(1000)]
+        data_viz.histogram(rand_double_list, file_name)
+
+        self.assertEqual(os.path.exists(file_name), True)
+
+        os.remove(file_name)
+
 
 if __name__ == '__main__':
     unittest.main()
