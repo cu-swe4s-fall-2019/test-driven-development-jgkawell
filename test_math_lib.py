@@ -7,11 +7,10 @@ class TestMathLib(unittest.TestCase):
     def test_list_mean_none_list(self):
         result = math_lib.list_mean(None)
         self.assertEqual(result, None)
-        
+
     def test_list_mean_empty_list(self):
         result = math_lib.list_mean([])
         self.assertEqual(result, None)
-
 
 
 if __name__ == '__main__':
