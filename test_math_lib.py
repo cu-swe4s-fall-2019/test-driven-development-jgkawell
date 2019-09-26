@@ -20,6 +20,11 @@ class TestMathLib(unittest.TestCase):
         result = math_lib.list_mean(rand_list)
         self.assertEqual(result, statistics.mean(rand_list))
 
+    def test_list_mean_double_list(self):
+        rand_list = [random.random() for i in range(1000)]
+        result = math_lib.list_mean(rand_list)
+        self.assertAlmostEqual(result, statistics.mean(rand_list))
+
 
 if __name__ == '__main__':
     unittest.main()
