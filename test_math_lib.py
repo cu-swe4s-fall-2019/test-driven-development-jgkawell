@@ -46,6 +46,10 @@ class TestMathLib(unittest.TestCase):
         result = math_lib.list_stdev(None)
         self.assertEqual(result, None)
 
+    def test_list_stdev_empty_list(self):
+        result = math_lib.list_stdev([])
+        self.assertEqual(result, None)
+
 
 if __name__ == '__main__':
     unittest.main()
