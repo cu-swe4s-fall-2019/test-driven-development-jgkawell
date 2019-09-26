@@ -9,9 +9,10 @@ before_install:
     - conda create --yes -n test
     - conda activate test
     - conda install -y pycodestyle
+    - conda install -y matplotlib
     - conda install --yes python=3.6
-      
+
 script:
-    - bash gen_data.sh
-    # - bash test_viz.sh
-    # - python test_viz.py
+    - pycodestyle *.py
+    - python test_math_lib.py
+    - python test_data_viz.py
