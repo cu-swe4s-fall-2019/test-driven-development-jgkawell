@@ -7,7 +7,12 @@ def list_mean(L):
     if len(L) == 0:
         return None
 
-    return sum(L) / len(L)
+    try:
+        mean = sum(L) / len(L)
+    except TypeError:
+        raise TypeError("List must only contain numeric values.")
+
+    return mean
 
 
 def list_stdev(L):
