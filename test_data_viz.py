@@ -20,8 +20,17 @@ class TestMathLib(unittest.TestCase):
 
     def test_boxplot_random_1d_array(self):
         file_name = "test.png"
-        rand_double_list = [random.random() for i in range(1000)]
-        data_viz.boxplot(rand_double_list, file_name)
+        rand_int_list = [random.randrange(-1000, 1000) for i in range(1000)]
+        data_viz.boxplot(rand_int_list, file_name)
+
+        self.assertEqual(os.path.exists(file_name), True)
+
+        os.remove(file_name)
+
+    def test_histogram_random_1d_array(self):
+        file_name = "test.png"
+        rand_int_list = [random.randrange(-1000, 1000) for i in range(1000)]
+        data_viz.histogram(rand_int_list, file_name)
 
         self.assertEqual(os.path.exists(file_name), True)
 
