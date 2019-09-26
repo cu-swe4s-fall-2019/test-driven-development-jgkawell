@@ -57,7 +57,7 @@ class TestMathLib(unittest.TestCase):
 
         os.remove(file_name)
 
-    def test_historgram_random_double_array(self):
+    def test_histogram_random_double_array(self):
         file_name = "test.png"
         rand_double_list = [random.random() for i in range(1000)]
         data_viz.histogram(rand_double_list, file_name)
