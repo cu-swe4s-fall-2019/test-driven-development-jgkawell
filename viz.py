@@ -2,6 +2,11 @@ import get_data
 import data_viz
 import argparse
 
+"""
+This script enables the user to pipe in data through stdin and then
+create plot files from it by choosing the file name and plot type.
+"""
+
 parser = argparse.ArgumentParser(
     description='Plot a data visualization from standard in (stdin).')
 parser.add_argument(
@@ -15,10 +20,12 @@ parser.add_argument(
 
 
 def main():
+    # Parse args and read in data from stdin
     args = parser.parse_args()
     data = get_data.read_stdin_col(col_num=0)
 
     try:
+        # Switch case to choose the right plot type
         if args.plot_type == "boxplot":
             data_viz.boxplot(data, args.out_file)
         elif args.plot_type == "histogram":

@@ -6,6 +6,8 @@ import os
 
 class TestMathLib(unittest.TestCase):
 
+    """ BOXPLOT TESTS """
+
     def test_boxplot_file_already_exists(self):
         file_name = "test.png"
         f = open(file_name, "w+")
@@ -36,6 +38,8 @@ class TestMathLib(unittest.TestCase):
 
         os.remove(file_name)
 
+    """ HISTOGRAM TESTS """
+
     def test_histogram_file_already_exists(self):
         file_name = "test.png"
         f = open(file_name, "w+")
@@ -65,6 +69,8 @@ class TestMathLib(unittest.TestCase):
         self.assertEqual(os.path.exists(file_name), True)
 
         os.remove(file_name)
+
+    """ COMBO TESTS """
 
     def test_combo_file_already_exists(self):
         file_name = "test.png"
