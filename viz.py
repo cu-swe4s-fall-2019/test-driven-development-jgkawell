@@ -16,17 +16,22 @@ parser.add_argument(
 
 def main():
     args = parser.parse_args()
-    data = get_data.read_stdin_col(1)
+    data = get_data.read_stdin_col(col_num=0)
 
-    if args.plot_type == "boxplot":
-        data_viz.boxplot(data, args.out_file)
-    elif args.plot_type == "histogram":
-        data_viz.histogram(data, args.out_file)
-    elif args.plot_type == "combo":
-        data_viz.combo(data, args.out_file)
-    else:
-        print("Only the following plot types are allowed: "
-              + "boxplot, histogram, or combo")
+    try:
+        if args.plot_type == "boxplot":
+            data_viz.boxplot(data, args.out_file)
+        elif args.plot_type == "histogram":
+            data_viz.histogram(data, args.out_file)
+        elif args.plot_type == "combo":
+            data_viz.combo(data, args.out_file)
+        else:
+            print("Only the following plot types are allowed: "
+                  + "boxplot, histogram, or combo")
+    except FileExistsError:
+        print("That file already exists. "
+              + "Either delete it or try another file name.")
+        exit(1)
 
 
 if __name__ == '__main__':
