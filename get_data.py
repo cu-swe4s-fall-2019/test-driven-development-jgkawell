@@ -19,7 +19,8 @@ def read_stdin_col(col_num):
             print("Input from stdin must only contain integer values")
             sys.exit(1)
         except IndexError:
-            print("The 'col_num' was either too big or too small for the data given.\n"
+            print("The 'col_num' was either too big or too small "
+                  + "for the data given.\n"
                   + "This could be because no data was in stdin.")
             sys.exit(1)
 

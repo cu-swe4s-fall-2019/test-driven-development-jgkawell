@@ -27,9 +27,10 @@ def main():
             data_viz.combo(data, args.out_file)
         else:
             print("Only the following plot types are allowed: "
-                + "boxplot, histogram, or combo")
+                  + "boxplot, histogram, or combo")
     except FileExistsError:
-        print("That file already exists. Either delete it or try another file name.")
+        print("That file already exists. "
+              + "Either delete it or try another file name.")
         exit(1)
 
 
