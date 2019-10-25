@@ -7,14 +7,14 @@ for lists of numeric values.
 """
 
 
-def list_mean(L):
+def list_mean(array):
     """
     Compute the mean of a given numeric list.
     Checks for None value or empty lists.
 
     Parameters
     ----------
-    L : list of ints or doubles
+    array : list of ints or doubles
 
     Returns
     ----------
@@ -23,28 +23,28 @@ def list_mean(L):
     """
 
     # Make sure the list is not None type
-    if L is None:
+    if array is None:
         raise ValueError("List cannot be \'None\'.")
     # Make sure the list is not empty
-    if len(L) == 0:
+    if len(array) == 0:
         raise ValueError("List cannot be empty.")
     # Try to find the mean but check for invalid types
     try:
-        mean = sum(L) / len(L)
+        mean = sum(array) / len(array)
     except TypeError:
         raise TypeError("List must only contain numeric values.")
 
     return mean
 
 
-def list_stdev(L):
+def list_stdev(array):
     """
     Compute the standard deviation of a given numeric list.
     Checks for None value or empty lists.
 
     Parameters
     ----------
-    L : list of ints or doubles
+    array : list of ints or doubles
 
     Returns
     ----------
@@ -53,8 +53,8 @@ def list_stdev(L):
     """
 
     # Find stdev using mean from method above
-    mean = list_mean(L)
-    var = sum(pow(el - mean, 2) for el in L) / len(L)
+    mean = list_mean(array)
+    var = sum(pow(el - mean, 2) for el in array) / len(array)
     stdev = math.sqrt(var)
 
     return stdev
