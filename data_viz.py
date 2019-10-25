@@ -13,7 +13,7 @@ of the two.
 """
 
 
-def boxplot(L, out_file_name):
+def boxplot(array, out_file_name):
     """
     Creates and saves a boxplot of the data given
     in a 1D numeric list. Mean and standard deviation
@@ -21,7 +21,7 @@ def boxplot(L, out_file_name):
 
     Parameters
     ----------
-    L : list of ints or doubles
+    array : list of ints or doubles
     out_file_name : string name of file to save
 
     Returns
@@ -34,11 +34,11 @@ def boxplot(L, out_file_name):
         raise FileExistsError("That file name already exists.")
 
     # Find mean and stdev using math_lib library
-    mean = ml.list_mean(L)
-    stdev = ml.list_stdev(L)
+    mean = ml.list_mean(array)
+    stdev = ml.list_stdev(array)
 
     # Create and save the plot
-    plt.boxplot(L)
+    plt.boxplot(array)
     plt.title("mean: " + str(mean) + " stdev: " + str(stdev))
     plt.xlabel("Column Number")
     plt.ylabel("Value")
@@ -46,7 +46,7 @@ def boxplot(L, out_file_name):
     plt.close()
 
 
-def histogram(L, out_file_name):
+def histogram(array, out_file_name):
     """
     Creates and saves a histogram of the data given
     in a 1D numeric list. Mean and standard deviation
@@ -54,7 +54,7 @@ def histogram(L, out_file_name):
 
     Parameters
     ----------
-    L : list of ints or doubles
+    array : list of ints or doubles
     out_file_name : string name of file to save
 
     Returns
@@ -67,11 +67,11 @@ def histogram(L, out_file_name):
         raise FileExistsError("That file name already exists.")
 
     # Find mean and stdev using math_lib library
-    mean = ml.list_mean(L)
-    stdev = ml.list_stdev(L)
+    mean = ml.list_mean(array)
+    stdev = ml.list_stdev(array)
 
     # Create and save the plot
-    plt.hist(L)
+    plt.hist(array)
     plt.title("mean: " + str(mean) + " stdev: " + str(stdev))
     plt.xlabel("Value")
     plt.ylabel("Frequency")
@@ -79,7 +79,7 @@ def histogram(L, out_file_name):
     plt.close()
 
 
-def combo(L, out_file_name):
+def combo(array, out_file_name):
     """
     Creates and saves a combo plot of the data given
     in a 1D numeric list. Mean and standard deviation
@@ -88,7 +88,7 @@ def combo(L, out_file_name):
 
     Parameters
     ----------
-    L : list of ints or doubles
+    array : list of ints or doubles
     out_file_name : string name of file to save
 
     Returns
@@ -101,21 +101,21 @@ def combo(L, out_file_name):
         raise FileExistsError("That file name already exists.")
 
     # Find mean and stdev using math_lib library
-    mean = ml.list_mean(L)
-    stdev = ml.list_stdev(L)
+    mean = ml.list_mean(array)
+    stdev = ml.list_stdev(array)
 
     # Set the global title
     plt.title("mean: " + str(mean) + " stdev: " + str(stdev))
 
     # Create the boxplot on the left
     plt.subplot(1, 2, 1)
-    plt.boxplot(L)
+    plt.boxplot(array)
     plt.xlabel("Column Number")
     plt.ylabel("Value")
 
     # Create the histogram on the right
     plt.subplot(1, 2, 2)
-    plt.hist(L)
+    plt.hist(array)
     plt.xlabel("Value")
     plt.ylabel("Frequency")
 
